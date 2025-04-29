@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./realty-BE
+    container_name: realty-spring-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    env_file:
+      - .env
+    networks:
+      - backend
+
+  frontend:
+    build:
+      context: ./realty-FE
+    container_name: realty-react-app
+    ports:
+      - "5173:5173"
+    command: npm run dev -- --host
+    volumes:
+      - ./realty-FE:/app
+      - /app/node_modules
+    working_dir: /app
+    environment:
+      - NODE_ENV=development
+    networks:
+      - backend
+
+  db:
+    image: postgres:15
+    container_name: realty-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: realty
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+volumes:
+  postgres-data:
+
+networks:
+  backend:
