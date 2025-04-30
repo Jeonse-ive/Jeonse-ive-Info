@@ -29,6 +29,12 @@ JWT_ACCESS_EXPIRATION=3600000   # 1시간 (단위: 밀리초)
 JWT_REFRESH_EXPIRATION=604800000  # 7일 (단위: 밀리초)
 ```
 
+### 1.2 BE Build
+- BE 디렉터리 위치에서 빌드 명령어를 실행해줍니다.
+
+```bash
+./gradlew clean build -x test
+```
 
 ### 2. 파일 구성
 
@@ -59,7 +65,7 @@ $ ./restart.sh -f
 - 접속 경로: http://localhost:5173
 
 
-### ▶ 블랙업 (Backend) 만 시작
+### ▶ BE 만 시작
 
 ```bash
 $ ./restart.sh -b
