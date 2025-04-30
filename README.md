@@ -9,6 +9,24 @@
 - Database: PostgreSQL
 - Docker, Docker Compose을 활용해 개발 / 구도 / 실행 가능
 
+## 커밋 컨벤션
+
+| 커밋 유형 | 의미 |
+| --- | --- |
+| `Feat` | 새로운 기능 추가 |
+| `Fix` | 버그 수정 |
+| `Docs` | 문서 수정 |
+| `Style` | 코드 formatting, 세미콜론 누락, 코드 자체의 변경이 없는 경우 |
+| `Refactor` | 코드 리팩토링 |
+| `Test` | 테스트 코드, 리팩토링 테스트 코드 추가 |
+| `Chore` | 패키지 매니저 수정, 그 외 기타 수정 ex) .gitignore |
+| `Design` | CSS 등 사용자 UI 디자인 변경 |
+| `Comment` | 필요한 주석 추가 및 변경 |
+| `Rename` | 파일 또는 폴더 명을 수정하거나 옮기는 작업만인 경우 |
+| `Remove` | 파일을 삭제하는 작업만 수행한 경우 |
+| `!BREAKING CHANGE` | 커다란 API 변경의 경우 |
+| `!HOTFIX` | 급하게 치명적인 버그를 고쳐야 하는 경우 |
+
 
 ## 가져와서 처음 세팅할 때 필요한 행동
 
@@ -56,7 +74,7 @@ $ ./restart.sh
 - BE API: http://localhost:8080
 
 
-### ▶ FE만 실행행
+### ▶ FE만 실행
 
 ```bash
 $ ./restart.sh -f
