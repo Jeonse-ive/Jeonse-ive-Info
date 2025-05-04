@@ -56,39 +56,16 @@ JWT_REFRESH_EXPIRATION=604800000  # 7일 (단위: 밀리초)
 
 ### 2. 파일 구성
 
-- Dockerfile (FE, BE)
+- Dockerfile
 - docker-compose.yml
 - start script (개발 모드용)
 
 
 ## 실행 방법
-
-
-### ▶ FE, BE 모두 실행
-
 ```bash
 $ ./restart.sh
 ```
-- 프론트엔드 (Vite Dev Server), 백엔드 (Spring Boot), 데이터베이스 (PostgreSQL) 모두 동시에 실행합니다.
-- FE: http://localhost:5173
-- BE API: http://localhost:8080
-
-
-### ▶ FE만 실행
-
-```bash
-$ ./restart.sh -f
-```
-- Vite Dev Server를 통해 React 프론트를 개발 모드로 실행합니다.
-- 접속 경로: http://localhost:5173
-
-
-### ▶ BE 만 시작
-
-```bash
-$ ./restart.sh -b
-```
-- Spring Boot 서버만 실행합니다.
+- Spring Boot 서버를 실행합니다.
 - 접속 경로: http://localhost:8080
 - 실행 시 PostgreSQL(DB)도 함께 시작됩니다.
 
@@ -99,8 +76,7 @@ $ ./restart.sh -b
 | 파일                   | 설명                                     |
 |:---------------------|:---------------------------------------|
 | `Dockerfile` (FE)    | Vite Dev Server를 컨테이너로 실행하는 프론트 개발용 설정 |
-| `Dockerfile` (BE)    | 빌드된 Spring Boot JAR 파일을 실행하는 백엔드 설정    |
-| `docker-compose.yml` | 전체 서비스 기본 설정                           |
+| `docker-compose.yml` | db, server port 연결                           |
 | `restart.sh`         | 실행 명령어 스크립트                            |
 
 
